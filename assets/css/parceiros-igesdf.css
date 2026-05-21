@@ -50,7 +50,9 @@
   color: var(--igesdf-primary) !important;
   border-color: var(--igesdf-primary) !important;
 }
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
   color: #fff !important;
   background-color: var(--igesdf-primary) !important;
   border-color: var(--igesdf-primary) !important;

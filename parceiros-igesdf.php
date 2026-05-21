@@ -16,6 +16,9 @@ if (!defined('ABSPATH')) exit;
 
 define('UA_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('PARCERIA_IGESDF_VERSION', '0.0.0');
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('dashicons');
+});
 add_action('init', function () {
     register_post_type('parceria_igesdf', [
         'labels' => [
@@ -124,11 +127,11 @@ add_shortcode('galeria_parcerias_detail', function () {
                             </svg>
                         <?php } ?>
                     </div>
-                    <div class="bg-light rounded-bottom parceiros-card-body">
+                    <div class="rounded-bottom parceiros-card-body">
                         <div class="text-center parceiros-card-content">
                             <h2 class="card-title text-center"><?php the_title(); ?></h2>
                             <button type="button" class="btn btn-outline-primary m-3" data-bs-toggle="modal" data-bs-target="#openModal-<?php echo get_the_ID(); ?>">
-                                Saiba mais
+                                <span>Saiba mais</span> <span class="dashicons dashicons-editor-expand"></span>
                             </button>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
