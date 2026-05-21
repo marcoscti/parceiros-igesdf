@@ -38,7 +38,12 @@ add_shortcode('galeria_parcerias', function () {
         [],
         '5.3.8'
     );
-
+    wp_enqueue_style(
+        'parcerias-igesdf-style',
+        plugin_dir_url(__FILE__) . 'assets/css/parceiros-igesdf.css',
+        [],
+        PARCERIA_IGESDF_VERSION
+    );
     // Bootstrap Completo JS
     wp_enqueue_script(
         'parcerias-igesdf-bootstrap',
@@ -54,10 +59,10 @@ add_shortcode('galeria_parcerias', function () {
     ]);
 
     ob_start(); ?>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-2">
+    <div class="parceiros-igesdf row row-cols-1 row-cols-sm-2 row-cols-md-6 g-2">
         <?php while ($q->have_posts()): $q->the_post(); ?>
-            <div class="" id="<?= get_the_ID() ?>">
-                <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => 'img-fluid rounded', 'alt' => get_the_title()]); ?>
+            <div class="card parceiros-thumbnail" id="<?= get_the_ID() ?>">
+                <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => 'img-fluid rounded', 'alt' => get_the_title(), 'title' => get_the_title()]); ?>
                 <?php if (!has_post_thumbnail()) { ?>
                     <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="150" preserveAspectRatio="xMidYMid slice" role="img" width="150" xmlns="http://www.w3.org/2000/svg">
                         <title>Placeholder</title>
@@ -94,7 +99,12 @@ add_shortcode('galeria_parcerias_detail', function () {
         '5.3.8',
         true
     );
-
+    wp_enqueue_style(
+        'parcerias-igesdf-style',
+        plugin_dir_url(__FILE__) . 'assets/css/parceiros-igesdf.css',
+        [],
+        PARCERIA_IGESDF_VERSION
+    );
     $q = new WP_Query([
         'post_type' => 'parceria_igesdf',
         'posts_per_page' => -1,
@@ -103,10 +113,10 @@ add_shortcode('galeria_parcerias_detail', function () {
     ob_start(); ?>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <?php while ($q->have_posts()): $q->the_post(); ?>
-            <div class="col" id="<?php echo get_the_ID(); ?>">
-                <div class="card" data-categoria="<?php echo esc_attr(get_post_meta(get_the_ID(), 'categoria', true)); ?>">
-                    <div class="card-image">
-                        <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => '', 'alt' => get_the_title(), 'style' => 'height: 150px; object-fit: contain;text-align: center;width:100%']); ?>
+            <div class="col" id="<?= get_the_ID(); ?>">
+                <div class="card parceiros-card" data-categoria="<?php echo esc_attr(get_post_meta(get_the_ID(), 'categoria', true)); ?>">
+                    <div class="card-image parceiros-image-container">
+                        <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => 'parceiros-image', 'alt' => get_the_title()]); ?>
                         <?php if (!has_post_thumbnail()) { ?>
                             <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="150" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
                                 <title>Placeholder</title>
@@ -114,16 +124,14 @@ add_shortcode('galeria_parcerias_detail', function () {
                             </svg>
                         <?php } ?>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text"><?php the_title(); ?></p>
+                    <div class="bg-light rounded-bottom parceiros-card-body">
+                        <div class="text-center parceiros-card-content">
+                            <h2 class="card-title text-center"><?php the_title(); ?></h2>
+                            <button type="button" class="btn btn-outline-primary m-3" data-bs-toggle="modal" data-bs-target="#openModal-<?php echo get_the_ID(); ?>">
+                                Saiba mais
+                            </button>
+                        </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <!-- Button trigger modal -->
-                            <div class="d-grid gap-2">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#openModal-<?php echo get_the_ID(); ?>">
-                                    Saiba mais
-                                </button>
-                            </div>
-
                             <!-- Modal -->
                             <div class="modal fade" id="openModal-<?php echo get_the_ID(); ?>" tabindex="-1" aria-labelledby="openModalLabel-<?php echo get_the_ID(); ?>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
@@ -134,9 +142,6 @@ add_shortcode('galeria_parcerias_detail', function () {
                                         </div>
                                         <div class="modal-body">
                                             <?php the_content(); ?>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>

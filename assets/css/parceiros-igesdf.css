@@ -1,0 +1,57 @@
+:root {
+  --igesdf-primary: #0094c6;
+  --igesdf-secondary: #00b3c4;
+  --igesdf-green: #c8d400;
+  --igesdf-yellow: #ffed00;
+  --igesdf-orange: #ec6608;
+  --igesdf-gray: #575756;
+}
+.card.parceiros-card {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.parceiros-image {
+  height: 110px;
+  width: 100%;
+}
+.parceiros-image-container {
+  height: 110px;
+}
+.parceiros-card-body {
+  width: 100%;
+}
+.parceiros-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.parceiros-igesdf {
+  gap: 0.5rem;
+}
+.parceiros-thumbnail {
+  justify-content: center;
+  align-items: center;
+  max-height: 110px;
+  margin-top: 0;
+}
+
+.parceiros-thumbnail img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-primary {
+  background-color: var(--igesdf-primary) !important;
+  border-color: var(--igesdf-primary) !important;
+}
+.btn-outline-primary {
+  color: var(--igesdf-primary) !important;
+  border-color: var(--igesdf-primary) !important;
+}
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: var(--igesdf-primary) !important;
+  border-color: var(--igesdf-primary) !important;
+}
