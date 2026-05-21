@@ -59,6 +59,8 @@ add_shortcode('galeria_parcerias', function () {
     $q = new WP_Query([
         'post_type' => 'parceria_igesdf',
         'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
     ]);
 
     ob_start(); ?>
@@ -111,6 +113,8 @@ add_shortcode('galeria_parcerias_detail', function () {
     $q = new WP_Query([
         'post_type' => 'parceria_igesdf',
         'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
     ]);
 
     ob_start(); ?>
