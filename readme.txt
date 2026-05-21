@@ -1,135 +1,68 @@
-=== Unidades de Atendimento ===
+=== Parcerias IgesDF ===
 Contributors: marcoscti
-Tags: unidades, hospital, upa, saúde, shortcode, cards, filtro
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 0.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Plugin para gerenciamento e exibição de Unidades de Atendimento (Hospitais e UPAs) com filtros e layout em cards.
+Plugin para gerenciamento e exibição de Parcerias do IgesDF via shortcodes.
 
 == Description ==
 
-O plugin **Unidades de Atendimento** permite cadastrar, gerenciar e exibir unidades de saúde como **Hospitais** e **UPAs** diretamente pelo painel administrativo do WordPress.
+O plugin **Parcerias IgesDF** permite cadastrar, gerenciar e exibir logomarcas de instituições e empresas parceiras do IgesDF diretamente pelo painel administrativo do WordPress.
 
-As unidades são exibidas no site por meio de um **shortcode**, em formato de **cards responsivos**, com botões de filtro dinâmico por tipo de atendimento (Hospital, UPA ou Todos), sem recarregar a página.
+As parcerias são exibidas no site por meio de **shortcodes**, organizados em grids responsivos usando Bootstrap 5, ideal para rodapés ou páginas de transparência.
+
+O plugin carrega automaticamente as dependências do Bootstrap 5.3.8 (CSS e JS Bundle) via CDN para garantir o funcionamento correto dos componentes.
 
 Ideal para:
 - Sites institucionais
-- Portais de saúde
-- Prefeituras
-- Organizações públicas ou privadas
 
 Principais recursos:
 - CRUD completo no admin
-- Controle de unidades ativas/inativas
-- Campos personalizados essenciais
-- Shortcode simples
-- Filtro por tipo de unidade
-- Layout moderno com cor padrão #0094C6
+- Dois tipos de galeria (simples e com detalhes em modal)
 
 == Installation ==
 
-1. Faça o upload da pasta `unidades-atendimento` para o diretório `/wp-content/plugins/`
+1. Faça o upload da pasta `parceiros-igesdf` para o diretório `/wp-content/plugins/`
    ou envie o arquivo ZIP pelo painel do WordPress.
 2. Ative o plugin em **Plugins → Plugins Instalados**.
-3. No menu lateral do admin, acesse **Unidades de Atendimento**.
-4. Cadastre suas unidades.
-5. Utilize o shortcode `[unidades_atendimento]` na página desejada.
+3. No menu lateral do admin, acesse **Parceiros**.
+4. Cadastre seus parceiros.
+5. Utilize um dos shortcodes disponíveis.
 
 == How to Use ==
 
-### Cadastro de Unidade
+### Cadastro de Parceiro
 
 Acesse:
-Painel WordPress → Unidades de Atendimento → Adicionar Nova
+Painel WordPress → Parcerias IgesDF → Adicionar Nova
 
 Preencha os campos:
 
-- **Título da unidade** (Obrigatório)
-  Nome da unidade de atendimento.
+- **Título** (Obrigatório)
+  Nome da instituição ou empresa.
 
-- **Descrição** (Obrigatório)
-  Informações gerais, serviços, horários etc.
+- **Conteúdo** (Opcional)
+  Informações detalhadas sobre a parceria (exibidas no modal do shortcode de detalhes).
 
-- **Endereço** (Obrigatório)
-  Endereço completo da unidade.
-
-- **Telefone** (Opcional)
-  Telefone de contato.
-
-- **Link** (Opcional)
-  Link para site oficial ou Google Maps.
-
-- **Imagem destacada** (Opcional, recomendado)
-  Imagem usada no card da unidade.
-
-- **Tipo** (Obrigatório)
-  Selecione:
-  - Hospital
-  - UPA
-
-- **Ativo** (Obrigatório para exibição)
-  Apenas unidades marcadas como "Ativo" aparecem no site.
+- **Imagem destacada** (Recomendado)
+  Logotipo do parceiro (formatos recomendados: PNG transparente ou SVG).
 
 ### Shortcode
 
-Use o shortcode abaixo para exibir as unidades no site:
+Use os shortcodes abaixo:
 
-[unidades_atendimento]
+`[galeria_parcerias]`
+Exibe apenas os logos em uma grade compacta.
+
+`[galeria_parcerias_detail]`
+Exibe cards com o nome e botão para abrir detalhes em um modal.
 
 Você pode inserir o shortcode em:
 
 - Bloco **Shortcode** do Gutenberg
 - Widget **Shortcode** do Elementor
 - Conteúdo de páginas ou posts
-
-== Filters ==
-
-No frontend, o plugin exibe três botões de filtro:
-
-- **Todos** → Exibe todas as unidades ativas
-- **Hospital** → Exibe apenas unidades do tipo Hospital
-- **UPA** → Exibe apenas unidades do tipo UPA
-
-O filtro é feito via JavaScript, sem recarregar a página.
-
-== Styling ==
-
-- Layout em cards responsivos
-- Grid automático
-- Cor principal: #0094C6
-- Estilos carregados automaticamente pelo shortcode
-
-== Frequently Asked Questions ==
-
-= As unidades não aparecem no site =
-Verifique se:
-- A unidade está marcada como **Ativo**
-- O shortcode foi inserido corretamente
-- A unidade possui um **Tipo** definido
-
-= Posso usar mais de uma vez o shortcode? =
-Sim. O shortcode pode ser usado em quantas páginas quiser.
-
-= Posso personalizar o layout? =
-Sim. Você pode sobrescrever os estilos via CSS no tema.
-
-== Changelog ==
-
-= 1.0.0 =
-* Versão inicial
-* Cadastro de unidades
-* Shortcode com filtros
-* Layout em cards
-
-== Upgrade Notice ==
-
-= 1.0.0 =
-Versão inicial estável do plugin.
-
-== License ==
-
-This plugin is licensed under the GPL v2 or later.
