@@ -137,13 +137,13 @@ add_shortcode('galeria_parcerias_detail', function () {
                         <div class="d-flex justify-content-between align-items-center">
                             <!-- Modal -->
                             <div class="modal fade" id="openModal-<?php echo get_the_ID(); ?>" tabindex="-1" aria-labelledby="openModalLabel-<?php echo get_the_ID(); ?>" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="openModalLabel-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
+                                        <div class="modal-header p-4">
+                                            <h1 class="modal-title" id="openModalLabel-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body p-4">
                                             <?php the_content(); ?>
                                         </div>
                                     </div>

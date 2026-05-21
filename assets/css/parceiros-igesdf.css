@@ -47,8 +47,8 @@
   border-color: var(--igesdf-primary) !important;
 }
 .btn-outline-primary {
-  color: var(--igesdf-primary) !important;
-  border-color: var(--igesdf-primary) !important;
+  color: var(--igesdf-gray) !important;
+  border-color: var(--igesdf-gray) !important;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus,
@@ -57,3 +57,4 @@
   background-color: var(--igesdf-primary) !important;
   border-color: var(--igesdf-primary) !important;
 }
+
