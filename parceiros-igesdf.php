@@ -66,7 +66,7 @@ add_shortcode('galeria_parcerias', function () {
     ob_start(); ?>
     <div class="parceiros-igesdf row row-cols-1 row-cols-sm-2 row-cols-md-6 g-2">
         <?php while ($q->have_posts()): $q->the_post(); ?>
-            <div class="card parceiros-thumbnail" id="<?= get_the_ID() ?>">
+            <div class="card parceiros-thumbnail p-2" id="<?= get_the_ID() ?>">
                 <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => 'img-fluid rounded', 'alt' => get_the_title(), 'title' => get_the_title()]); ?>
                 <?php if (!has_post_thumbnail()) { ?>
                     <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="150" preserveAspectRatio="xMidYMid slice" role="img" width="150" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ add_shortcode('galeria_parcerias_detail', function () {
     ob_start(); ?>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <?php while ($q->have_posts()): $q->the_post(); ?>
-            <div class="col" id="<?= get_the_ID(); ?>">
+            <div class="col p-2" id="<?= get_the_ID(); ?>">
                 <div class="card parceiros-card" data-categoria="<?php echo esc_attr(get_post_meta(get_the_ID(), 'categoria', true)); ?>">
                     <div class="card-image parceiros-image-container">
                         <?php if (has_post_thumbnail()) the_post_thumbnail("medium", ['class' => 'parceiros-image', 'alt' => get_the_title()]); ?>
